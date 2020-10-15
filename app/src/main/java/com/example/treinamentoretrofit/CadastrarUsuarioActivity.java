@@ -84,7 +84,6 @@ public class CadastrarUsuarioActivity extends AppCompatActivity {
             }
         });
     }
-
     private void cadastrarUsuario(Usuario usuario) {
 
         Call call = mService.postUsuarios(usuario);
