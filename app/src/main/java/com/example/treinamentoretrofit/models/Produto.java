@@ -1,20 +1,28 @@
 package com.example.treinamentoretrofit.models;
 
-import java.io.Serializable;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
+import java.io.Serializable;
+@Root(name="Produtos")
 public class Produto implements Serializable {
-    private int id;
+    @Element(name = "Id")
+    private int Id;
+    @Element(name = "Nome")
     private String Nome;
+    @Element(name = "Preco")
     private double Preco;
+    @Element(name = "Estoque")
     private int Estoque;
+    @Element(name = "Descricao")
     private String Descricao;
 
     public int getId() {
-        return id;
+        return Id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getNome() {

@@ -22,7 +22,6 @@ public class RetrofitClient {
         {
             retrofit = new Retrofit.Builder()
                     .baseUrl(url)
-                    .addConverterFactory(SimpleXmlConverterFactory.create())
                     .build();
         }
         return retrofit;
