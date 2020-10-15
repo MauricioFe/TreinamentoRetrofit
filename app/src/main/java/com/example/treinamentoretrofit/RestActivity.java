@@ -1,9 +1,14 @@
 package com.example.treinamentoretrofit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.example.treinamentoretrofit.adapters.UsuarioAdapter;
@@ -36,6 +41,22 @@ public class RestActivity extends AppCompatActivity {
         atualizaListaUsuarios();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.item_adicionar) {
+            startActivity(new Intent(this, CadastrarUsuarioActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void atualizaListaUsuarios() {
         Call<List<Usuario>> call = mService.getUsuarios();
         call.enqueue(new Callback<List<Usuario>>() {
@@ -43,15 +64,15 @@ public class RestActivity extends AppCompatActivity {
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                 if (response.isSuccessful()) {
                     mAdapter.updateUsuarios(response.body());
-                }else{
+                } else {
                     int statusCode = response.code();
-                    Log.d("Não deu sucesso", "O código de retorno é: "+ statusCode);
+                    Log.d("Não deu sucesso", "O código de retorno é: " + statusCode);
                 }
             }
 
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
-                Log.d("Erro api", "Erro na chamada da api: "+ t.getMessage());
+                Log.d("Erro api", "Erro na chamada da api: " + t.getMessage());
             }
         });
     }

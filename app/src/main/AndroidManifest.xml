@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TreinamentoRetrofit"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RestActivity"></activity>
+        <activity android:name=".CadastrarProdutoActivity"></activity>
+        <activity android:name=".CadastrarUsuarioActivity" />
+        <activity android:name=".RestActivity" />
         <activity android:name=".SoapActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
