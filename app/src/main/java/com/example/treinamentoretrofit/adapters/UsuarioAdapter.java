@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,5 +65,10 @@ public class UsuarioAdapter extends BaseAdapter {
             }
         });
         return convertView;
+    }
+
+    public void updateUsuarios(List<Usuario> usuarioList) {
+        this.usuarioList = usuarioList;
+        notifyDataSetChanged();
     }
 }

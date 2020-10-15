@@ -1,13 +1,28 @@
 package com.example.treinamentoretrofit.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
+    @SerializedName("id")
+    @Expose
     private int Id;
+    @SerializedName("nome")
+    @Expose
     private String Nome;
+    @SerializedName("email")
+    @Expose
     private String Email;
+    @SerializedName("telefone")
+    @Expose
     private String Telefone;
+    @SerializedName("senha")
+    @Expose
     private String Senha;
+    @SerializedName("funcaoId")
+    @Expose
     private int FuncaoId;
 
     public int getId() {
